@@ -1,0 +1,8 @@
+{
+  "name": "错题举一反三打印机",
+  "description": "基于 AI 的全科错题工具。支持拍照识别、知识点分析、智能生成变式题，并可一键导出 PDF 打印。",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}

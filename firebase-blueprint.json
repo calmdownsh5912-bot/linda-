@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "mistake": {
+      "title": "Mistake",
+      "description": "A record of a student mistake and its generated analogous questions.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Unique ID of the user who owns this record."
+        },
+        "originalText": {
+          "type": "string",
+          "description": "The recognized text of the original mistake."
+        },
+        "originalImageUrl": {
+          "type": "string",
+          "description": "URL of the uploaded image (if applicable)."
+        },
+        "options": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Multiple choice options, if any."
+        },
+        "userAnswer": {
+          "type": "string",
+          "description": "The answer the user originally provided."
+        },
+        "correctAnswer": {
+          "type": "string",
+          "description": "The correct answer to the original mistake."
+        },
+        "knowledgePoint": {
+          "type": "string",
+          "description": "The core academic concept or knowledge point identifies by AI."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the mistake was saved."
+        },
+        "analogousQuestions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": { "type": "string" },
+              "answer": { "type": "string" },
+              "analysis": { "type": "string", "description": "Analysis focusing on common mistake points." }
+            }
+          }
+        }
+      },
+      "required": ["userId", "originalText", "knowledgePoint", "createdAt", "analogousQuestions"]
+    }
+  },
+  "firestore": {
+    "mistakes": {
+      "schema": "mistake",
+      "description": "Collection of mistakes saved by users."
+    }
+  }
+}
